@@ -1,0 +1,73 @@
+
+#include "project.h"
+#include "stdio.h"
+#include <stdlib.h>
+    
+    
+    
+    int16 x;
+    int16 y;
+    int16 a;
+    int16 r;
+    int16 i;  
+    int16 n;
+    int16 courbe;
+    int16 data;
+    char8 rxData;
+    char8 txData;
+    int16 table_y[240];
+    int16 table_r[240];
+    int16 table_i[240];
+
+
+    
+int main(void)
+{
+
+CyGlobalIntEnable; 
+    UART_Start();
+    
+
+
+
+    
+    
+ while(1)
+{    
+  
+    
+ r=0;
+ i=0;
+ y=0;
+    for(n=0;n<240;n++) //boucle for où on récupère 240 valeurs pour chaque table
+    {
+    y=n;
+    r=240-n;
+    i =120+n/2;
+     
+    table_y[n]=y;
+    table_r[n]=r;
+    table_i[n]=i; 
+    }
+
+
+
+    for(n=0;n<240;n++)
+    {
+
+        char buffer[3]; // conversion valeur en char
+        snprintf(buffer, 10, "%d",table_i[n]); // « snprintf » permet une conversion de la valeur numérique en chaine de caractères
+        i=0;
+       while(buffer[i] !=0) //tant que non Nul
+         {UART_WriteTxData(buffer[i]);
+        i=i+1;}
+           CyDelay (800); 
+    }
+
+ 
+        
+        
+    }
+
+   } 
+    

@@ -1,0 +1,42 @@
+/* ========================================
+ *
+ * Copyright YOUR COMPANY, THE YEAR
+ * All Rights Reserved
+ * UNPUBLISHED, LICENSED SOFTWARE.
+ *
+ * CONFIDENTIAL AND PROPRIETARY INFORMATION
+ * WHICH IS THE PROPERTY OF your company.
+ *
+ * ========================================
+*/
+#include "project.h"
+
+int main(void)
+{
+    int16 Rn=0;
+    int16 n=0;
+CyGlobalIntEnable; 
+    UART_Start();
+    char8 txData;
+    int16 table_Rn[256]; 
+    int i=0;
+    
+    
+ while(1)
+{     
+    for(n=0;n<256;n++)
+    {
+        Rn=Rn+1;
+        table_Rn[n]=Rn;
+        
+    }
+       for(i=0;i<256;i++)
+    {
+        Rn=Rn+1;
+       Ri=table_Rn(i)
+        
+    }
+}
+}
+
+/* [] END OF FILE */

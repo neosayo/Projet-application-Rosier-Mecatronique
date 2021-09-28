@@ -1,0 +1,46 @@
+/* ========================================
+ *
+ * Copyright YOUR COMPANY, THE YEAR
+ * All Rights Reserved
+ * UNPUBLISHED, LICENSED SOFTWARE.
+ *
+ * CONFIDENTIAL AND PROPRIETARY INFORMATION
+ * WHICH IS THE PROPERTY OF your company.
+ *
+ * ========================================
+*/
+#include "project.h"
+#include "stdio.h"
+#include <stdlib.h>
+int val=9; // nombre entier
+//int my_rand(void);
+int main(void)
+{
+    CyGlobalIntEnable; 
+    UART_Start();
+    char8 txData;
+   // int i;
+   
+   
+    
+
+    for(;;)
+    {
+      // printf ("%d\n", my_rand());
+        
+       // rxData = 0x39;
+        //UART_WriteTxData(0x39);
+        UART_PutChar(txData);
+        char buffer[10]; // conversion valeur en char
+        snprintf(buffer, 10, "%d", val); // « snprintf » permet une conversion de la valeur numérique en chaine de caractères
+        int i=0;
+       while(buffer[i] !=0) //tant que non Nul
+         {UART_WriteTxData(buffer[i]);
+        i=i+1;}
+    
+        CyDelay(800);
+        
+    }
+   // return (EXIT_SUCCESS);
+}
+
