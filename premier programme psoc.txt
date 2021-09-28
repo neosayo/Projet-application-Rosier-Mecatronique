@@ -1,14 +1,4 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
+
 #include "project.h"
 #include "stdio.h"
 #include <stdlib.h>
@@ -32,7 +22,7 @@ int main(void)
         //UART_WriteTxData(0x39);
         UART_PutChar(txData);
         char buffer[10]; // conversion valeur en char
-        snprintf(buffer, 10, "%d", val); // « snprintf » permet une conversion de la valeur numérique en chaine de caractères
+        snprintf(buffer, 10, "%d", val); // Â« snprintf Â» permet une conversion de la valeur numÃ©rique en chaine de caractÃ¨res
         int i=0;
        while(buffer[i] !=0) //tant que non Nul
          {UART_WriteTxData(buffer[i]);
